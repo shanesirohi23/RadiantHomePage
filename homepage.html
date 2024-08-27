@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character Set and Viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Radiant is a platform to connect with people from your own school and college. Meet and network with peers easily and effectively.">
+    <meta name="keywords" content="school connections, college networking, meet classmates, student community, social network, Radiant">
+    <meta name="author" content="Shane Sirohi, Ishaan Raj">
+
+    <!-- Open Graph Meta Tags for Social Media Previews -->
+    <meta property="og:title" content="Radiant Coming Soon - Connect with Your School and College Friends">
+    <meta property="og:description" content="Radiant is a platform for connecting with classmates and peers from your own school and college. Discover and network with your schoolmates easily.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://radiantrelease.onrender.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Radiant - Connect with Your School and College Friends">
+    <meta name="twitter:description" content="Radiant is a platform for connecting with classmates and peers from your own school and college. Discover and network with your schoolmates easily.">
+    <meta name="twitter:image" content="/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/svg+xml">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#4A90E2">
+
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Title -->
+    <title>Radiant - Connect with Your School and College Friends</title>
+
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="module" crossorigin src="/js/main.js"></script>
+    <link rel="stylesheet" href="/assets/index-c43e6b3c.css">
+</head>
+<div id="timerContainer" class="fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-lg shadow-lg flex items-center space-x-2 animate-pulse">
+    <div id="timer" class="text-sm font-mono"></div>
+    <button id="cancelButton" class="text-red-500 hover:text-red-700 focus:outline-none text-xs">Cancel</button>
+</div>
+<body class="font-body px-8 md:px-16">
+    <!-- home section -->
+    <section class="bg-white py-10 md:mb-10">
+        <div class="container max-w-screen-xl mx-auto px-4">
+            <nav class="flex-wrap lg:flex items-center" x-data="{navbarOpen:false}">
+                <div class="flex items-center mb-10 lg:mb-0">
+                    <b><h class="text-3xl font-extrabold leading-none tracking-tight text-blue-500 md:text-5xl lg:text-6xl dark:text-white">Radiant</h></b>
+
+                    <button class="lg:hidden w-10 h-10 ml-auto flex items-center justify-center border border-blue-500 text-blue-500 rounded-md" @click="navbarOpen = !navbarOpen">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+
+                <ul class="lg:flex flex-col lg:flex-row lg:items-center lg:mx-auto lg:space-x-8 xl:space-x-14" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
+                    <li class="font-semibold text-gray-900 hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="font-semibold text-gray-900 hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                        <a href="https://radiantupdates.netlify.app">Updates</a>
+                    </li>
+                    <li class="font-semibold text-gray-900 hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                        <a href="#feature">Features</a>
+                    </li>
+                    <li class="font-semibold text-gray-900 hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                        <a href="/about">About us</a>
+                    </li>
+                </ul>
+
+                <div class="lg:flex flex-col md:flex-row md:items-center text-center md:space-x-6" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
+                    <a href="/login" class="px-6 py-4 bg-blue-500 text-white font-semibold text-lg rounded-xl hover:bg-blue-700 transition ease-in-out duration-500 mb-5 md:mb-0">Log In</a
+                    >
+
+                    <a
+                        href="/signup"
+                        class="px-6 py-4 border-2 border-blue-500 text-blue-500 font-semibold text-lg rounded-xl hover:bg-blue-700 hover:text-white transition ease-linear duration-500"
+                        >Become a user</a
+                    >
+                </div>
+            </nav>
+
+            <div
+                class="flex flex-col lg:flex-row justify-between space-x-20"
+            >
+                <div class="text-center lg:text-left mt-40">
+                    <h1
+                        class="font-semibold text-gray-900 text-3xl md:text-6xl leading-normal mb-6"
+                    >
+                        Meet people from your own campus
+                    </h1>
+
+                    <p
+                        class="font-light text-gray-400 text-md md:text-lg leading-normal mb-12"
+                    >
+                        India's first decentralized social network for campuses
+                        <br />
+                        Meet all your campus alumnis and friends
+                    </p>
+
+                    <a href="comingsoon.html"><button 
+                        class="px-6 py-4 bg-green-500 font-semibold text-white text-lg rounded-xl hover:bg-blue-700 transition ease-in-out duration-500"
+                    >
+                        Get started
+                    </button></a>
+                </div>
+
+                <div class="mt-24">
+                    <img src="images/bg1.jpg" alt="Image" />
+                </div>
+        </div>
+        </div>
+        <!-- container.// -->
+    </section>
+    <!-- home section //end -->
+
+    <!-- feature section -->
+    <section id='feature' class="bg-white py-16 md:mt-10">
+        <div class="container max-w-screen-xl mx-auto px-4">
+            <p class="font-light text-gray-500 text-lg md:text-xl text-center uppercase mb-6">
+                Our features
+            </p>
+
+            <h1 class="font-semibold text-gray-900 text-xl md:text-4xl text-center leading-normal mb-10">
+                Releasing Exclusively for <br /> Jaipuria School Students !!
+            </h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+                <div class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 py-6 flex justify-center bg-blue-200 bg-opacity-30 text-blue-700 rounded-xl">
+                            <i data-feather="globe"></i>
+                        </div>
+                    </div>
+
+                    <h4 class="font-semibold text-lg md:text-2xl text-gray-900 mb-6">
+                        Decentralized
+                    </h4>
+
+                    <p class="font-light text-gray-500 text-md md:text-xl mb-6">
+                        Find and Meet only the people from your campus, school and college
+                    </p>
+
+                </div>
+
+                <div class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 py-6 flex justify-center bg-blue-200 bg-opacity-30 text-blue-700 rounded-xl">
+                            <i data-feather="arrow-up-right"></i>
+                        </div>
+                    </div>
+
+                    <h4 class="font-semibold text-lg md:text-2xl text-gray-900 mb-6">
+                        Same Likes
+                    </h4>
+
+                    <p class="font-light text-gray-500 text-md md:text-xl mb-6">
+                        Find people from your campus and school with the same likes as you
+                    </p>
+
+                </div>
+
+                <div class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 py-6 flex justify-center bg-blue-200 bg-opacity-30 text-blue-700 rounded-xl">
+                            <i data-feather="heart"></i>
+                        </div>
+                    </div>
+
+                    <h4 class="font-semibold text-lg md:text-2xl text-gray-900 mb-6">
+                        Find your <i>#bestie</i>
+                    </h4>
+
+                    <p class="font-light text-gray-500 text-md md:text-xl mb-6">
+                        Find your bestie with our quick match feature. Get randomly paired with anyone from your campus and school.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <!-- container.// -->
+    </section>
+    <!-- feature section //end -->
+
+    <!-- feature section -->
+    <section class="bg-white py-16">
+        <div class="container max-w-screen-xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between space-x-16">
+                <div class="flex justify-center lg:justify-start ">
+                    <img class="rounded-2xl" src="images/bg2.png" alt="Image" />
+                </div>
+
+                <div class="mt-16">
+                    <h1 class="font-semibold text-gray-900 text-xl md:text-4xl mb-20">
+                        The <i class="text-blue-500">new way</i> of <br /> Social Networking
+                    </h1>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 md:space-x-20 mb-16">
+                        <div class="mb-5 md:mb-0">
+                            <div class="w-20 py-6 flex justify-center bg-info bg-opacity-5 rounded-xl mb-4">
+                                <i data-feather="link" class="text-info"></i>
+                            </div>
+
+                            <h3 class="font-semibold text-gray-900 text-xl md:text-3xl mb-4">
+                                10+
+                            </h3>
+
+                            <p class="font-light text-gray-400 text-md md:text-lg">
+                                Schools and Campuses<br /> Linked
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="w-20 py-6 flex justify-center bg-red-500 bg-opacity-5 rounded-xl mb-4">
+                                <i data-feather="users" class="text-red-500"></i>
+                            </div>
+
+                            <h3 class="font-semibold text-gray-900 text-xl md:text-3xl mb-4">
+                                300+
+                            </h3>
+
+                            <p class="font-light text-gray-400 text-md md:text-lg">
+                                Users across Ghaziabad<br /> and counting
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 md:space-x-20">
+                        <div class="mb-5 md:mb-0">
+                            <div class="w-20 py-6 flex justify-center bg-yellow-500 bg-opacity-5 rounded-xl mb-4">
+                                <i data-feather="clock" class="text-yellow-500"></i>
+                            </div>
+
+                            <h3 class="font-semibold text-gray-900 text-xl md:text-3xl mb-4">
+                                1500+ Hrs
+                            </h3>
+
+                            <p class="font-light text-gray-400 text-md md:text-lg">
+                                Online User Count <br /> <i>and counting😉</i>
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="w-20 py-6 flex justify-center bg-green-500 bg-opacity-5 rounded-xl mb-4">
+                                <i data-feather="trending-up" class="text-green-500"></i>
+                            </div>
+
+                            <h3 class="font-semibold text-gray-900 text-xl md:text-3xl mb-4">
+                                98%
+                            </h3>
+
+                            <p class="font-light text-gray-400 text-md md:text-lg">
+                                Weekly Growth <br /> of Social Network
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- container.// -->
+    </section>
+    <!-- feature section //end -->
+
+
+
+    <footer class="mt-20 bg-white py-16">
+        <div class="container max-w-screen-xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row lg:justify-between">
+                <div class="space-y-7 mb-10 lg:mb-0">
+                    <div class="flex justify-center lg:justify-start">
+                        <img src="images/logo.png" class="h-12 rounded-2xl" alt="Image" />
+                    </div>
+
+                    <p class="font-light text-gray-400 text-md md:text-lg text-center lg:text-left">
+                        Building whats more than just <br /> <b>friendships</b>
+                    </p>
+
+                    <div class="flex items-center justify-center lg:justify-start space-x-5">
+                        <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-info hover:text-white transition ease-in-out duration-500">
+                            <i data-feather="facebook"></i>
+                        </a>
+
+                        <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-info hover:text-white transition ease-in-out duration-500">
+                            <i data-feather="twitter"></i>
+                        </a>
+
+                        <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-info hover:text-white transition ease-in-out duration-500">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center lg:text-left space-y-7 mb-10 lg:mb-0">
+                    <h4 class="font-semibold text-gray-900 text-lg md:text-2xl">
+                        Quick links
+                    </h4>
+
+                    <a href="https://termsconditionsradiant.netlify.app" class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300">Terms and Conditions</a
+                    >
+
+                    <a
+                        href="https://termsandconditionsradiant.netlify.app/termsofuse.html"
+                        class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300"
+                        >Terms of Use</a
+                    >
+
+                    <a
+                        href="https://termsandconditionsradiant.netlify.app/privacypolicy.html"
+                        class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300"
+                        >Privacy Policy</a
+                    >
+
+                    <a
+                        href="https://termsconditionsradiant.netlify.app/schoolcampuspolicy.html"
+                        class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300"
+                        >School and Campus Policy</a
+                    >
+                </div>
+
+                <div
+                    class="text-center lg:text-left space-y-7 mb-10 lg:mb-0"
+                >
+                    <h4
+                        class="font-semibold text-gray-900 text-lg md:text-2xl"
+                    >
+                        Company
+                    </h4>
+
+                    <a
+                        href="/about"
+                        class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300"
+                        >About Us</a
+                    >
+
+                    <a
+                        href="/about"
+                        class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300"
+                        >Developers</a
+                    >
+
+                    <a
+                        href="/about"
+                        class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300"
+                        >Working With Us</a
+                    >
+
+                    <a
+                        href="https://radiantupdates.netlify.app"
+                        class="block font-light text-gray-400 text-sm md:text-lg hover:text-gray-800 transition ease-in-out duration-300"
+                        >Updates</a
+                    >
+                </div>
+
+            </div>
+        </div>
+        <!-- container.// -->
+    </footer>
+
+    <script>
+        (function() { const r = document.createElement("link").relList; if (r && r.supports && r.supports("modulepreload")) return; for (const e of document.querySelectorAll('link[rel="modulepreload"]')) i(e);
+    new MutationObserver(e => { for (const t of e)
+            if (t.type === "childList")
+                for (const o of t.addedNodes) o.tagName === "LINK" && o.rel === "modulepreload" && i(o) }).observe(document, { childList: !0, subtree: !0 });
+
+    function s(e) { const t = {}; return e.integrity && (t.integrity = e.integrity), e.referrerPolicy && (t.referrerPolicy = e.referrerPolicy), e.crossOrigin === "use-credentials" ? t.credentials = "include" : e.crossOrigin === "anonymous" ? t.credentials = "omit" : t.credentials = "same-origin", t }
+
+    function i(e) { if (e.ep) return;
+        e.ep = !0; const t = s(e);
+        fetch(e.href, t) } })();
+console.log("loaded");
+        feather.replace();
+        document.addEventListener('DOMContentLoaded', function() {
+            const countdown = () => {
+                const targetDate = new Date('2024-09-28T00:00:00').getTime();
+                const now = new Date().getTime();
+                const timeLeft = targetDate - now;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('timer').innerHTML = "Time's up!";
+                    return;
+                }
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('timer').innerHTML = 
+                    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            };
+
+            const timerInterval = setInterval(countdown, 1000);
+
+            document.getElementById('cancelButton').addEventListener('click', function() {
+                clearInterval(timerInterval);
+                document.getElementById('timerContainer').remove();
+            });
+        });
+    </script>
+    
+</body>
+</html>
